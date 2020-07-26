@@ -103,23 +103,36 @@ public class words {
 
         String[] words = str.replaceAll("\\pP", "").split("\\s");
 
+        if ( words.length>1 ) {
 
-        for (int i=0; i< words.length; i++){
+            for (int i=0; i< words.length; i++){
+                if (prof_dic.contains(words[i].toLowerCase())){
+                    fnd++;
+                    foundInTotal++;
+                    System.out.println("Found: " + words[i].toLowerCase() + "Total: " + foundInTotal);
+                }
+            }
+        }
+        else if (words.length==1) {
 
-        if (prof_dic.contains(words[i])){
-            fnd++;
-            foundInTotal++;
-            System.out.println("Found: " + words[i] + " Total: " + foundInTotal);
+            if (prof_dic.contains(words[0].toLowerCase())) {
+                fnd++;
+                foundInTotal++;
+                System.out.println("Found: " + words[0].toLowerCase() + "Total: " + foundInTotal);
+            }
+            }
+
+        else {
+            System.out.println(" Error with checking word in dictionary ");
         }
-        }
+
 
         if (fnd>0)
         {
-            fnd = 0;
             return 1;
         }
         fnd = 0;
-    //    System.out.println(" Not found ");
+
         return 0;
     }
 
