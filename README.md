@@ -1,4 +1,12 @@
-# Quickstart: Recognize speech in Java on Windows, macOS, or Linux
+# Noswear project (shocking watch profanity tracking) voice recognition app
+Recognition profanity from live speech from microphone using Microsoft Congitive Services.
+
+
+
+
+
+# Manual from demo:
+## Quickstart: Recognize speech in Java on Windows, macOS, or Linux
 
 This sample demonstrates how to recognize speech with the Speech SDK for Java on Windows, macOS or Linux.
 See the [accompanying article](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) on the SDK documentation page which describes how to build this sample from scratch in Eclipse.
