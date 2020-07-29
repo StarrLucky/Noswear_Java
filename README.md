@@ -1,7 +1,8 @@
 # Noswear project (shocking watch profanity tracking)  
 
-[Noswear_Android_Client](https://github.com/StarrLucky/Noswear_Android_Client): Sending commands to NFR51 board over BLE;
-[Noswear_Shocking_Board](https://github.com/StarrLucky/Noswear_Shocking_Board): Controlling shocking circuit by receiving commands from BLE android app.
+[Noswear_Android_Client](https://github.com/StarrLucky/Noswear_Android_Client): Sending commands to NFR51 board over BLE;  
+
+[Noswear_Shocking_Board](https://github.com/StarrLucky/Noswear_Shocking_Board): Controlling shocking circuit by receiving commands from BLE android app.  
 
 ## Noswear_Java voice recognition app  
 
