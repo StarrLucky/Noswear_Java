@@ -1,13 +1,15 @@
 # Noswear project (shocking watch profanity tracking)  
 
-[Noswear_Android_Client](https://github.com/StarrLucky/Noswear_Android_Client): Sending commands to NFR51 board over BLE;  
+[Noswear_Android_Client](https://github.com/StarrLucky/Noswear_Android_Client): sending commands to NFR51 board over BLE  
 
-[Noswear_Shocking_Board](https://github.com/StarrLucky/Noswear_Shocking_Board): Controlling shocking circuit by receiving commands from BLE android app.  
+[Noswear_Shocking_Board](https://github.com/StarrLucky/Noswear_Shocking_Board): controlling shocking circuit by receiving commands from BLE android app.  
+
+--- 
 
 ## Noswear_Java voice recognition app  
 
 Recognition profanity from live speech from microphone using Microsoft Congitive Services.
-This app recognising live speech and compares words with dictionary of profanity (profanity_dict.txt).
+This app recognising live speech and compares words with profanity language [dictionary](blob/master/dict/profanity_dic.txt).
 In case, if it matches with dictionary shocking on command will be sent to Noswear android app trough WiFi connection. 
 
 
