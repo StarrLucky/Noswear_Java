@@ -9,7 +9,7 @@
 ## Noswear_Java voice recognition app  
 
 Recognition profanity from live speech from microphone using Microsoft Congitive Services.
-This app recognising live speech and compares words with profanity language [dictionary](blob/master/dict/profanity_dic.txt).
+This app recognising live speech and compares words with profanity language [dictionary](..blob/master/dict/profanity_dic.txt).
 In case, if it matches with dictionary shocking on command will be sent to Noswear android app trough WiFi connection. 
 
 
