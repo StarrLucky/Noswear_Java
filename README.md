@@ -37,3 +37,9 @@ In case, if it matches with dictionary shocking on command will be sent to Noswe
 
 * [Quickstart article on the SDK documentation site](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre)
 * [Speech SDK API reference for Java](https://aka.ms/csspeech/javaref)
+
+----
+
+  ![Noswear shocking watch pcb](https://github.com/StarrLucky/Noswear_Shocking_Board/blob/master/pcb.jpg)
+
+----
