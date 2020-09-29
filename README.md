@@ -12,20 +12,11 @@ Recognition profanity from live speech from microphone using Microsoft Congitive
 This app recognising live speech and compares words with profanity language [dictionary](dict/profanity_dic.txt).
 In case, if it matches with dictionary shocking on command will be sent to Noswear android app trough WiFi connection. 
 
-
-
+----
 ### Manual from demo:
 ### Prerequisites
 * A subscription key for the Speech service. See [Try the speech service for free](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started).
-* A PC (Windows x64, Ubuntu 16.04 or 18.04 on x64 or ARM64, RHEL 8 or CentOS 8 on x64) or Mac (macOS 10.13 or later) capable to run Eclipse,[<sup>[1]</sup>](#footnote1) with a working microphone.
-* 64-bit JRE/JDK for Java 8.
-* Version 4.8 of [Eclipse](https://www.eclipse.org), 64-bit.[<sup>[1]</sup>](#footnote1)
-* On Ubuntu 16.04 or 18.04, run the following commands for the installation of required packages:
-## Build the sample
 
-> Note: more detailed step-by-step instructions are available [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre).
-
-* **By downloading the Microsoft Cognitive Services Speech SDK when building this sample, you acknowledge its license, see [Speech SDK license agreement](https://docs.microsoft.com/azure/cognitive-services/speech-service/license).**
 * [Download the sample code to your development PC.](/README.md#get-the-samples)
 * Create an empty workspace in Eclipse and import the folder containing this sample as a project into your workspace.
 * Edit the `Main` source:
@@ -33,13 +24,7 @@ In case, if it matches with dictionary shocking on command will be sent to Noswe
   * Replace the string `YourServiceRegion` with the service region of your subscription.
     For example, replace with `westus` if you are using the 30-day free trial subscription.
 * Save the modified file.
-## References
-
-* [Quickstart article on the SDK documentation site](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre)
-* [Speech SDK API reference for Java](https://aka.ms/csspeech/javaref)
 
 ----
 
   ![Noswear shocking watch pcb](https://github.com/StarrLucky/Noswear_Shocking_Board/blob/master/pcb.jpg)
-
-----
