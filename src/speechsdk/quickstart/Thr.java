@@ -7,32 +7,38 @@ import java.util.Date;
 
 public class Thr extends Thread {
 
+    private static final String SHOCK_URL = "http://192.168.2.4/shock";
+
+    // Held as fields so the native recognizer is not garbage-collected (which would
+    // stop recognition) while this thread is alive, and can be closed on shutdown.
+    private SpeechConfig config;
+    private SpeechRecognizer recognizer;
+
     @Override
     public void run() {
 
         try {
 
-            words wrd = new words();
+            Words wrd = new Words();
             wrd.loadProfanityDictionary();
             HttpClient cl = new HttpClient();
-            Date date = new Date();
-            String url = "http://192.168.2.4/shock";
 
+            String speechSubscriptionKey = System.getenv("SPEECH_KEY");
+            String serviceRegion = System.getenv("SPEECH_REGION");
+            if (serviceRegion == null || serviceRegion.isEmpty()) {
+                serviceRegion = "northeurope";
+            }
+            if (speechSubscriptionKey == null || speechSubscriptionKey.isEmpty()) {
+                System.out.println("Set the SPEECH_KEY environment variable to your Azure Speech subscription key.");
+                return;
+            }
 
-            String st = null;
-            // Replace below with your own subscription key
-            String speechSubscriptionKey = "5887f5b4685d49fd8a31d5c1d8c13b3f";
-            // Replace below with your own service region (e.g., "westus").
-            String serviceRegion = "northeurope";
-
-            int exitCode = 1;
-            SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+            config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
             config.setOutputFormat(OutputFormat.Simple);
             config.enableDictation();
 
-            //SpeechRecognizer recognizer = new SpeechRecognizer(config);
-            SpeechRecognizer recognizer = new SpeechRecognizer(config, "ru-RU");
-            System.out.println( String.format("Started @  %tR", date));
+            recognizer = new SpeechRecognizer(config, "ru-RU");
+            System.out.println(String.format("Started @  %tR", new Date()));
 
             System.out.println("Say something...");
 
@@ -41,11 +47,11 @@ public class Thr extends Thread {
                     // Do something with the recognized text
                     System.out.println("Recognized: " + e.getResult().getText());
 
-                    if (wrd.checkForBadWords2(e.getResult().getText())>0) {
+                    if (wrd.containsBadWord(e.getResult().getText())) {
                         try {
-                            cl.request(url);
+                            cl.request(SHOCK_URL);
                         } catch (Exception exception) {
-                            System.out.println("Exception exception1");
+                            System.out.println("Shock request failed: " + exception.getMessage());
                         }
                     }
                 }
@@ -74,20 +80,26 @@ public class Thr extends Thread {
             });
 
 
-
-
-
-
             recognizer.startContinuousRecognitionAsync().get();
-
-
-
 
         } catch (Exception ex) {
             System.out.println("Unexpected exception: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
 
-
+    /** Stops recognition and releases the native Speech SDK resources. */
+    public void shutdown() {
+        try {
+            if (recognizer != null) {
+                recognizer.stopContinuousRecognitionAsync().get();
+                recognizer.close();
+            }
+            if (config != null) {
+                config.close();
+            }
+        } catch (Exception ex) {
+            System.out.println("Error during shutdown: " + ex.getMessage());
         }
     }
 }
-
